@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Página de registro</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <!-- Usuario -->
+        <div>
+            <label for="">Usuario</label>
+            {{ form.username }}
+            {% for error in form.username.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+        <!-- Contraseña -->
+        <div>
+            <label for="">Contraseña</label>
+            {{ form.password }}
+            {% for error in form.password.errors %}
+                {{ error }}
+            {% endfor %}  
+        </div> 
+        <!-- Contraseña -->
+        <div>
+            <label for="">Repite contraseña</label>
+            {{ form.confirm }}
+            {% for error in form.confirm.errors %}
+                {{ error }}
+            {% endfor %}  
+        </div> 
+         <!-- Boton -->
+         <button>Enviar</button>
+    </form>
+</body>
+</html>

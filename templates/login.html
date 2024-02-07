@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de log in</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Login</h1>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <!-- Usuario -->
+            <div style="padding: .5rem;">
+                <div style="margin-bottom: .2rem;">
+                    <label for="">Usuario</label>
+                </div>
+                <div>
+                    {{ form.username }}
+                </div>
+                <p>
+                    {% for error in form.username.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+            </div>
+            <!-- Contraseña -->
+            <div style="padding: .5rem;" class="label">
+                <div style="margin-bottom: .2rem;">
+                    <label for="">Contraseña</label>
+                </div>
+                <div>
+                    {{ form.password }}
+                </div>
+                <p>
+                    {% for error in form.password.errors %}
+                        {{ error }}
+                    {% endfor %}  
+                </p>
+                <!-- Boton -->
+                <button style="padding: .5rem;">Enviar</button>
+            </div> 
+        </form>
+    </main>
+</body>
+</html>
